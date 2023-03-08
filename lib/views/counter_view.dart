@@ -16,9 +16,13 @@ class CounterView extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text("Counter Value:"),
+                      Text(
+                          "Counter Value: ${viewModel.counterService.counterValue.toString()}"),
                       ElevatedButton(
-                          onPressed: () {}, child: Text("Add Counter value")),
+                          onPressed: () {
+                            viewModel.addValue();
+                          },
+                          child: Text("Add Counter value")),
                       ElevatedButton(
                           onPressed: () {
                             viewModel.navigateToHome();

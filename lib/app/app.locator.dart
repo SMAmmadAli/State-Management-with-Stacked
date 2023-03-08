@@ -9,7 +9,7 @@
 import 'package:stacked_core/stacked_core.dart';
 import 'package:stacked_services/src/navigation/navigation_service.dart';
 
-import '../controller/counter_service.dart';
+import '../services/counter_service.dart';
 
 final locator = StackedLocator.instance;
 

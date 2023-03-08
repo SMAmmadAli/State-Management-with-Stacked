@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import '../viewmodels/counter_viewmodel.dart';
+import 'package:statemanagement_stacked/viewmodels/home_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -8,7 +8,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.reactive(
-        viewModelBuilder: () => CounterViewModel(),
+        viewModelBuilder: () => HomeViewModel(),
         builder: (context, viewModel, child) {
           return Scaffold(
             body: SafeArea(
@@ -20,10 +20,19 @@ class HomeView extends StatelessWidget {
                         width: 200,
                         height: 200,
                         color: Colors.amber,
+                        child: Center(
+                          child: Text(
+                            viewModel.counterService.counterValue.toString(),
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            viewModel.navigateToHome();
+                            viewModel.navigateToCounter();
                           },
                           child: Text("Navigate to Counter"))
                     ]),
